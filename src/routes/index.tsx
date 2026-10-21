@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
+import ptLogo from "@/assets/pt-logo.png.asset.json";
 import planning from "@/assets/planning.jpg";
 import { buildMailto, CONTACT_EMAIL, inquirySchema, SERVICES } from "@/lib/inquiry";
 
@@ -39,14 +40,11 @@ const SERVICE_COPY: Record<(typeof SERVICES)[number], string> = {
     "Coordination of physical planning and site boundaries during development, working alongside the appropriate licensed professionals where required.",
 };
 
-function Monogram() {
+function Monogram({ className = "h-11 w-11" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" className="h-10 w-10" aria-hidden="true">
-      <rect x="1" y="1" width="46" height="46" fill="none" stroke="currentColor" className="text-gold" strokeWidth="1" />
-      <text x="24" y="31" textAnchor="middle" fontFamily="Oswald, sans-serif" fontWeight="600" fontSize="20" fill="currentColor" letterSpacing="1">
-        PT
-      </text>
-    </svg>
+    <span className={`inline-block shrink-0 overflow-hidden rounded-full bg-[var(--ink-foreground)] ${className}`}>
+      <img src={ptLogo.url} alt="" width={384} height={376} className="h-full w-full object-contain" />
+    </span>
   );
 }
 
