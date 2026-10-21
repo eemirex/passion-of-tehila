@@ -96,8 +96,8 @@ function Hero() {
     <section id="top" className="relative overflow-hidden bg-ink text-ink-foreground">
       <img src={hero} alt="" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover opacity-45" />
       <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-28 md:px-10 md:pb-32 md:pt-40">
-        <p className="eyebrow reveal">Ibadan · Oyo State · Nigeria</p>
-        <h1 className="font-display reveal mt-6 max-w-5xl text-6xl font-bold sm:text-7xl lg:text-[8.5rem]">
+        <p className="eyebrow reveal text-gold-soft">Ibadan · Oyo State · Nigeria</p>
+        <h1 className="font-display reveal mt-6 max-w-5xl text-5xl font-bold sm:text-7xl lg:text-[8.5rem]">
           Planning spaces.<br />
           <span className="text-gold-soft">Building possibilities.</span>
         </h1>
