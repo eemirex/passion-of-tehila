@@ -92,7 +92,7 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-ink text-ink-foreground">
-      <img src={hero} alt="" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover opacity-45" />
+      <img src={hero} alt="Modern architectural building facade" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover opacity-45" />
       <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-28 md:px-10 md:pb-32 md:pt-40">
         <p className="eyebrow reveal text-gold-soft">Ibadan · Oyo State · Nigeria</p>
         <h1 className="font-display reveal mt-6 max-w-5xl text-5xl font-bold sm:text-7xl lg:text-[8.5rem]">
@@ -108,8 +108,7 @@ function Hero() {
           <a href="#contact" className="btn-gold">Discuss your project <ArrowUpRight className="h-4 w-4" /></a>
           <a href="#services" className="btn-gold border-ink-foreground/40">View services</a>
         </div>
-        <p className="mt-16 text-xs text-ink-foreground/60">Representative architectural image — not company work.</p>
-      </div>
+              </div>
     </section>
   );
 }
@@ -173,8 +172,7 @@ function Project() {
       <div className="grid gap-12 md:grid-cols-12 md:items-center">
         <figure className="md:col-span-6">
           <img src={planning} alt="Site plan drawings with ruler and pencil" loading="lazy" width={1200} height={1408} className="w-full object-cover" />
-          <figcaption className="mt-3 text-xs text-muted-foreground">Representative image — not D’ Bahamas Court.</figcaption>
-        </figure>
+                  </figure>
         <div className="md:col-span-5 md:col-start-8">
           <p className="eyebrow">Project involvement</p>
           <h3 className="font-display mt-4 text-5xl font-bold md:text-7xl">D’ Bahamas Court</h3>
@@ -303,7 +301,7 @@ function Index() {
       </main>
       <footer className="bg-ink text-ink-foreground">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-xs uppercase tracking-[0.2em] md:flex-row md:justify-between md:px-10">
-          <span>© {new Date().getFullYear()} Passion of Tehila</span>
+          <span className="flex items-center gap-3"><Monogram className="h-9 w-9" />© {new Date().getFullYear()} Passion of Tehila</span>
           <span className="text-gold-soft">Design draft · Imagery is representative</span>
         </div>
       </footer>
