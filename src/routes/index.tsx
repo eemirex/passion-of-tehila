@@ -42,7 +42,7 @@ const SERVICE_COPY: Record<(typeof SERVICES)[number], string> = {
 
 function Monogram({ className = "h-11 w-11" }: { className?: string }) {
   return (
-    <span className={`inline-block shrink-0 overflow-hidden rounded-full bg-[var(--ink-foreground)] ${className}`}>
+    <span className={`inline-block shrink-0 overflow-hidden rounded-full bg-ink-foreground ${className}`}>
       <img src={ptLogo.url} alt="" width={384} height={376} className="h-full w-full object-contain" />
     </span>
   );
