@@ -3,7 +3,8 @@ import { useState, type FormEvent } from "react";
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import ptLogo from "@/assets/pt-logo.png.asset.json";
-import planning from "@/assets/planning.jpg";
+import dbVideo from "@/assets/dbahamas-court-web.mp4.asset.json";
+import dbPoster from "@/assets/dbahamas-poster.jpg.asset.json";
 import { buildMailto, CONTACT_EMAIL, inquirySchema, SERVICES } from "@/lib/inquiry";
 
 const TITLE = "Passion of Tehila — Planning, Contracts & Construction in Ibadan";
@@ -171,8 +172,21 @@ function Project() {
       <SectionHead num="03" label="Project" title="Featured project." />
       <div className="grid gap-12 md:grid-cols-12 md:items-center">
         <figure className="md:col-span-6">
-          <img src={planning} alt="Site plan drawings with ruler and pencil" loading="lazy" width={1200} height={1408} className="w-full object-cover" />
-                  </figure>
+          <video
+            controls
+            playsInline
+            preload="none"
+            poster={dbPoster.url}
+            aria-label="Video of D’ Bahamas Court"
+            className="aspect-video w-full bg-ink object-cover"
+          >
+            <source src={dbVideo.url} type="video/mp4" />
+            <a href={dbVideo.url}>Download the D’ Bahamas Court video</a>
+          </video>
+          <figcaption className="mt-3 text-sm text-muted-foreground">
+            Video does not play? <a href={dbVideo.url} className="underline hover:text-gold">Open the D’ Bahamas Court video</a>.
+          </figcaption>
+        </figure>
         <div className="md:col-span-5 md:col-start-8">
           <p className="eyebrow">Project involvement</p>
           <h3 className="font-display mt-4 text-5xl font-bold md:text-7xl">D’ Bahamas Court</h3>
