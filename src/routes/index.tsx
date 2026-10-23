@@ -316,7 +316,6 @@ function Index() {
       <footer className="bg-ink text-ink-foreground">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-xs uppercase tracking-[0.2em] md:flex-row md:justify-between md:px-10">
           <span className="flex items-center gap-3"><Monogram className="h-9 w-9" />© {new Date().getFullYear()} Passion of Tehila</span>
-          <span className="text-gold-soft">Design draft · Imagery is representative</span>
         </div>
       </footer>
     </>
