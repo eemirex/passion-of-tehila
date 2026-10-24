@@ -2,10 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import ptLogo from "@/assets/pt-logo.png.asset.json";
-import dbVideo from "@/assets/dbahamas-court-web.mp4.asset.json";
-import dbPoster from "@/assets/dbahamas-poster.jpg.asset.json";
 import { buildMailto, CONTACT_EMAIL, inquirySchema, SERVICES } from "@/lib/inquiry";
+
+// Real project media, committed to the repo and served from public/media/.
+// The video is reassembled from media-src/ chunks by scripts/build-media.sh.
+const PT_LOGO_URL = "/media/pt-logo.png";
+const DB_VIDEO_URL = "/media/dbahamas-court-web.mp4";
+const DB_POSTER_URL = "/media/dbahamas-poster.jpg";
 
 const TITLE = "Passion of Tehila — Planning, Contracts & Construction in Ibadan";
 const DESC =
@@ -44,7 +47,7 @@ const SERVICE_COPY: Record<(typeof SERVICES)[number], string> = {
 function Monogram({ className = "h-11 w-11" }: { className?: string }) {
   return (
     <span className={`inline-block shrink-0 overflow-hidden rounded-full bg-ink-foreground ${className}`}>
-      <img src={ptLogo.url} alt="" width={384} height={376} className="h-full w-full object-contain" />
+      <img src={PT_LOGO_URL} alt="" width={384} height={376} className="h-full w-full object-contain" />
     </span>
   );
 }
@@ -176,15 +179,15 @@ function Project() {
             controls
             playsInline
             preload="none"
-            poster={dbPoster.url}
+            poster={DB_POSTER_URL}
             aria-label="Video of D’ Bahamas Court"
             className="aspect-video w-full bg-ink object-cover"
           >
-            <source src={dbVideo.url} type="video/mp4" />
-            <a href={dbVideo.url}>Download the D’ Bahamas Court video</a>
+            <source src={DB_VIDEO_URL} type="video/mp4" />
+            <a href={DB_VIDEO_URL}>Download the D’ Bahamas Court video</a>
           </video>
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            Video does not play? <a href={dbVideo.url} className="underline hover:text-gold">Open the D’ Bahamas Court video</a>.
+            Video does not play? <a href={DB_VIDEO_URL} className="underline hover:text-gold">Open the D’ Bahamas Court video</a>.
           </figcaption>
         </figure>
         <div className="md:col-span-5 md:col-start-8">

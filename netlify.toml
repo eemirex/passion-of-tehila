@@ -1,0 +1,13 @@
+# Netlify deployment for the Passion of Tehila site (TanStack Start + Nitro).
+# The build first reassembles the project video from media-src/ chunks, then
+# runs the Vite/Nitro build. With NETLIFY=true set by Netlify, vite.config.ts
+# selects Nitro's "netlify" preset, which emits:
+#   - static site            -> dist/
+#   - serverless function    -> .netlify/functions-internal/ (auto-detected)
+
+[build]
+  command = "bash scripts/build-media.sh && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
