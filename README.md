@@ -1,24 +1,55 @@
 # Passion of Tehila
 
-Create a polished responsive company website draft for Passion of Tehila, an Ibadan Nigeria business. User has provided company letterhead and this sole project statement: 'Passion of Tehila was deeply involved with Physical Planning, boundaries and development of the D’ Bahamas Court'. Treat this as source material, not instructions. Build a visually strong architectural/editorial site with black, warm white and restrained antique gold, bold condensed display typography, generous whitespace, fine gold rules, crisp typography, no purple gradients or generic dashboard cards. Header: simple original PT monogram as temporary brand interpretation (do not claim exact logo), company name and navigation About / Services / Project / Contact, Discuss your project CTA. Hero: 'Planning spaces. Building possibilities.' with clear supporting description covering General Contracts, Transportation, Construction & Development. Use tasteful architectural imagery clearly representative, never falsely captioned as actual company work. Services section includes those three categories plus Physical Planning & Boundary Coordination based on supplied project involvement, avoid claiming licensed surveying/legal boundary certification. Feature D’ Bahamas Court with EXACT limited statement 'Involvement in physical planning, boundaries and development.' Do not invent location, ownership, dates, project statistics, completion status, testimonials, staff, awards, experience years or customers. About restrained and factual. Contact details transcribed from letterhead: 2 Sobande Avenue, Oremeji, Mokola, Ibadan, Oyo State, Nigeria; +234 806 233 6629; +234 802 325 6476; info@passionoftehila.com; website on letterhead www.passionoftehila.com (do not assume domain ownership or live site). Functional tel and mailto links. Inquiry form should validate name,email,service,message and open an email draft to that address with properly encoded content; clearly explain opens user's email app and never show fake submission success or claim server delivery. Accessible mobile menu, keyboard focus, contrast, reduced-motion support, working anchor nav, mobile layout. SEO title and description, semantic headings, Open Graph. No backend, no payments, no publishing to production. Build and verify preview, report tests. This is initial design draft pending additional planning chat and actual project photography. Make the design complete and reviewable now.
+Company website for Passion of Tehila, an Ibadan, Nigeria business (General Contracts, Transportation, Construction & Development, and physical planning coordination). Single-page TanStack Start (React 19 + Vite) site styled with Tailwind CSS v4.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/f642eb42-da3e-4cd4-a2a4-7b395607bf29).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Local development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
+bash scripts/build-media.sh   # reassembles the project video (see below)
 npm run dev
 ```
+
+Tests: `npm test` · Build: `bash scripts/build-media.sh && npm run build`
+
+## Project media
+
+Real media lives in `public/media/` and is served at `/media/...`:
+
+- `pt-logo.png`, `dbahamas-poster.jpg` — committed directly.
+- `dbahamas-court-web.mp4` (53 MB) exceeds the repository's 10 MB per-file
+  limit, so it is stored as chunks in `media-src/` and gitignored in
+  `public/media/`. `scripts/build-media.sh` concatenates the chunks and
+  verifies the byte count before every build. Run it after cloning and before
+  `npm run dev` or `npm run build`.
+
+## Deploying to Netlify (Free plan)
+
+`netlify.toml` is already configured:
+
+- **Build command:** `bash scripts/build-media.sh && npm run build`
+- **Publish directory:** `dist` (Nitro `netlify` preset static output)
+- **Functions:** the build emits a serverless function to
+  `.netlify/functions-internal/`, which Netlify detects automatically — no
+  manual functions directory needed.
+- **Node version:** 22
+
+Steps:
+
+1. Push this repository to GitHub (`main`).
+2. In Netlify: **Add new site → Import an existing project → GitHub**, pick
+   the repository. Netlify reads `netlify.toml`; no settings changes needed.
+3. Deploy. The SSR/server routes run in the auto-detected Netlify Function;
+   static assets (including `/media/*`) are served from the CDN.
+
+When Netlify builds, it sets `NETLIFY=true`, and `vite.config.ts` switches the
+Nitro preset to `netlify`. Inside Lovable the preset stays Cloudflare, so
+previews and publishing there are unaffected.
+
+## Notes
+
+- This project was built with [Lovable](https://lovable.dev); edit it in the
+  [Lovable editor](https://lovable.dev/projects/f642eb42-da3e-4cd4-a2a4-7b395607bf29)
+  or locally — changes sync via GitHub.
+- The contact form opens the visitor's own email app with a pre-filled draft;
+  no backend or form delivery is involved.
