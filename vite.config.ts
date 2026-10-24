@@ -10,7 +10,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // preset to "netlify" (serverless function + dist/ static output). Inside the
 // Lovable sandbox the config package pins the Cloudflare target and ignores
 // user preset options, so this has no effect on Lovable previews/publishes.
-const nitro = process.env.NETLIFY === "true" ? { preset: "netlify" } : undefined;
+const nitro = process.env["NETLIFY"] === "true" ? { preset: "netlify" } : undefined;
 
 export default defineConfig({
   tanstackStart: {

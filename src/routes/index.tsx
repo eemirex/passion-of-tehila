@@ -179,15 +179,15 @@ function Project() {
             controls
             playsInline
             preload="none"
-            poster={dbPoster.url}
+            poster={DB_POSTER_URL}
             aria-label="Video of D’ Bahamas Court"
             className="aspect-video w-full bg-ink object-cover"
           >
-            <source src={dbVideo.url} type="video/mp4" />
-            <a href={dbVideo.url}>Download the D’ Bahamas Court video</a>
+            <source src={DB_VIDEO_URL} type="video/mp4" />
+            <a href={DB_VIDEO_URL}>Download the D’ Bahamas Court video</a>
           </video>
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            Video does not play? <a href={dbVideo.url} className="underline hover:text-gold">Open the D’ Bahamas Court video</a>.
+            Video does not play? <a href={DB_VIDEO_URL} className="underline hover:text-gold">Open the D’ Bahamas Court video</a>.
           </figcaption>
         </figure>
         <div className="md:col-span-5 md:col-start-8">
