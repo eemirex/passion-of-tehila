@@ -2,10 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import ptLogo from "@/assets/pt-logo.png.asset.json";
-import dbVideo from "@/assets/dbahamas-court-web.mp4.asset.json";
-import dbPoster from "@/assets/dbahamas-poster.jpg.asset.json";
 import { buildMailto, CONTACT_EMAIL, inquirySchema, SERVICES } from "@/lib/inquiry";
+
+// Real project media, committed to the repo and served from public/media/.
+// The video is reassembled from media-src/ chunks by scripts/build-media.sh.
+const PT_LOGO_URL = "/media/pt-logo.png";
+const DB_VIDEO_URL = "/media/dbahamas-court-web.mp4";
+const DB_POSTER_URL = "/media/dbahamas-poster.jpg";
 
 const TITLE = "Passion of Tehila — Planning, Contracts & Construction in Ibadan";
 const DESC =
