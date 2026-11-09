@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Play } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 const photos = [
   { src: "site-photo-10-06-27.jpg", alt: "Wide view across a cleared site" },
@@ -26,7 +26,7 @@ const photos = [
 
 const videos = Array.from({ length: 10 }, (_, index) => ({
   src: `/media/portfolio/site-video-${String(index + 1).padStart(2, "0")}.mp4`,
-  label: `Site video ${String(index + 1).padStart(2, "0")}`,
+  label: `Project video ${String(index + 1).padStart(2, "0")}`,
 }));
 
 const MEDIA_BASE = "/media/portfolio/";
@@ -107,10 +107,6 @@ function ProjectsPage() {
                     className="h-auto w-full transition-transform duration-500 hover:scale-[1.02]"
                   />
                 </a>
-                <figcaption className="flex items-center justify-between px-4 py-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  <span>Site photograph</span>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                </figcaption>
               </figure>
             ))}
           </div>
@@ -138,10 +134,6 @@ function ProjectsPage() {
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support embedded video.
                   </video>
-                  <figcaption className="flex items-center gap-3 px-4 py-4">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-ink-foreground"><Play className="h-4 w-4" aria-hidden /></span>
-                    <span className="text-sm font-medium">{video.label}</span>
-                  </figcaption>
                 </figure>
               ))}
             </div>
