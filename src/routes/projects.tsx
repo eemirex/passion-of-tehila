@@ -24,9 +24,17 @@ const photos = [
   { src: "site-photo-10-14-33.jpg", alt: "Stone aggregate spread across a site" },
 ];
 
+const videoDimensions = [
+  [368, 642], [368, 674], [368, 674], [368, 674], [368, 642],
+  [368, 642], [256, 482], [368, 674], [368, 674], [368, 674],
+] as const;
+
 const videos = Array.from({ length: 10 }, (_, index) => ({
   src: `/media/portfolio/site-video-${String(index + 1).padStart(2, "0")}.mp4`,
+  poster: `/media/portfolio/video-${String(index + 1).padStart(2, "0")}-poster.jpg`,
   label: `Project video ${String(index + 1).padStart(2, "0")}`,
+  width: videoDimensions[index][0],
+  height: videoDimensions[index][1],
 }));
 
 const MEDIA_BASE = "/media/portfolio/";
@@ -128,8 +136,11 @@ function ProjectsPage() {
                     controls
                     playsInline
                     preload="none"
+                    poster={video.poster}
                     aria-label={video.label}
-                    className="max-h-[34rem] w-full bg-ink object-contain"
+                    width={video.width}
+                    height={video.height}
+                    className="w-full bg-ink object-contain"
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support embedded video.
