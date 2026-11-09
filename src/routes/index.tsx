@@ -33,6 +33,7 @@ const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#project", label: "Project" },
+  { href: "/projects", label: "Gallery" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -197,6 +198,7 @@ function Project() {
           <p className="font-serif text-3xl italic leading-snug">
             Involvement in physical planning, boundaries and development.
           </p>
+          <a href="/projects" className="btn-gold mt-6">Explore the project gallery <ArrowUpRight className="h-4 w-4" /></a>
           <a href="#contact" className="btn-gold mt-10">Discuss a similar project</a>
         </div>
       </div>
