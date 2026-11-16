@@ -22,19 +22,13 @@ const photos = [
   { src: "site-photo-10-07-09.jpg", alt: "Workers beside a stone-lined slope" },
   { src: "site-photo-10-07-13.jpg", alt: "Workers placing material along a stone-lined slope" },
   { src: "site-photo-10-14-33.jpg", alt: "Stone aggregate spread across a site" },
+  { src: "site-plan-details.jpg", alt: "Technical plan details and construction sections" },
 ];
 
-const videoDimensions = [
-  [368, 642], [368, 674], [368, 674], [368, 674], [368, 642],
-  [368, 642], [256, 482], [368, 674], [368, 674], [368, 674],
-] as const;
-
-const videos = Array.from({ length: 10 }, (_, index) => ({
+const videos = Array.from({ length: 49 }, (_, index) => ({
   src: `/media/portfolio/site-video-${String(index + 1).padStart(2, "0")}.mp4`,
   poster: `/media/portfolio/video-${String(index + 1).padStart(2, "0")}-poster.jpg`,
   label: `Project video ${String(index + 1).padStart(2, "0")}`,
-  width: videoDimensions[index][0],
-  height: videoDimensions[index][1],
 }));
 
 const MEDIA_BASE = "/media/portfolio/";
@@ -138,9 +132,9 @@ function ProjectsPage() {
                     preload="none"
                     poster={video.poster}
                     aria-label={video.label}
-                    width={video.width}
-                    height={video.height}
-                    className="w-full bg-ink object-contain"
+                    width={400}
+                    height={711}
+                    className="aspect-[9/16] w-full bg-ink object-contain"
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support embedded video.
